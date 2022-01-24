@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container-clock">
+    <BaseWatch :styleSet="styleSet[1]" />
+    <BaseWatch :styleSet="styleSet[2]" />
+    <BaseWatch :styleSet="styleSet[0]" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseWatch from "../src/components/BaseWatch.vue";
 
 export default {
-  name: 'App',
+  data() {
+    return {
+      styleSet: [
+        { background: "#0c0210" },
+        { background: "#ffaa00" },
+        { background: "#3e2900" }],
+    };
+  },
+  name: "App",
   components: {
-    HelloWorld
+    BaseWatch
   }
-}
+};
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.container-clock {
+  display: flex;
 }
 </style>
